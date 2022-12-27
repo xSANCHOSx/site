@@ -1,0 +1,170 @@
+/* Reset tags
+-------------------------------------------------------------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, input, textarea, button,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, address, section, video, audio {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  border: 0;
+  outline: 0;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word; }
+
+html, body, .container-fluid {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box; }
+
+html {
+  font-size: 100%;
+  /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units
+										   http://clagnut.com/blog/348/#c790 */
+  -webkit-text-size-adjust: 100%;
+  /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
+  -ms-text-size-adjust: 100%;
+  /* www.456bereastreet.com/archive/201012/
+										   controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow-y: scroll !important;
+  overflow-x: hidden;
+  height: 100%; }
+
+  body{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-size: 16px;
+  }
+
+input[type=text], input[type=tel], button{
+    width: 320px;
+    height: 58px;
+    background-color: #fff;
+    border: 1px solid;
+    border-radius: 5px;
+    color:#777;
+    padding-left: 20px;
+    margin-right: 20px;
+}
+.submit_form1{background-color: #DEBC62;font-weight: 700;color:#fff;margin: 0; padding: 0;}
+
+.block_img_wrap {height: auto; }
+.block_img_wrap img {width: 100%; height: auto;}
+.block_form_wrap{
+    background-color: #1B1B44;
+    width: 100%;
+    height: 138px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.quiz-page{
+    width: 100%;
+    height: 100%;
+    background: #EDF3F5;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+  }
+#quiz-form .step{
+    display: none;
+    width: 750px;
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    box-shadow: 0px 4px 34px rgba(0, 27, 68, 0.16);
+    border-radius: 20px;
+}
+.title_wrap{
+  color: #1B1B44;
+  font-weight: 700;
+  font-size: 24px;
+  padding: 40px 60px 20px 60px;
+  border-bottom: 1px solid #DDDDDD;
+  text-align: right;
+}
+
+.subtitle{
+  font-weight: normal;
+  font-size: 16px;
+  margin-top: 5px;
+  text-align: right;
+}
+
+.block-title{width: 100%; text-align: right;margin-bottom: 10px;font-weight: bold;}
+
+
+#quiz-form .wrap{padding: 20px 60px 30px 60px;}
+.field-checkbox,.field-select{display: flex;align-items: center;margin-bottom: 15px;}
+input[type=checkbox]{display: none;}
+input[type=checkbox] + span{position: relative;width: 20px;height: 20px;border: 2px solid #49D5FF;
+  border-radius: 4px;}
+[type=checkbox]:checked + span:before {/* <-- ставим иконку, когда чекбокс включен  */
+  content: url('/img/check-lg.svg');
+  position: absolute;
+  top: 0px;
+  left: 0;
+  height: 18px;
+  background:#49D5FF;
+}
+label[for="single-room"]>img,label[for="two_in_room"]>img,
+label[for="family"]>img,input[type=checkbox] + span{margin-left: 10px;}
+
+label[for="single-room"]{display: flex; align-items: end;}
+
+label{position: absolute;padding-right: 30px;}
+.field-select label{margin-left: 15px;font-weight: bold;}
+select{
+  width: 250px;
+  height: 44px;
+  background: #FFFFFF;
+  border: 1px solid #D2D2D2;
+  border-radius: 5px;
+  padding: 0 10px;
+}
+.field-input-group{display: flex;}
+.field-input-group input[type=text],
+.field-input-group input[type=tel],
+.field-input-group .data{
+  width: 180px;
+  height: 44px;
+  background: #FFFFFF;
+  border: 1px solid #D2D2D2;
+  border-radius: 5px;
+  margin-left: 20px;
+  margin-right: 0;
+  padding-right: 10px;
+}
+#datetimepicker1{position: relative;}
+.add-on{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 30px;
+}
+.choose-neighbor,.add_family_member,.add_family_member2{display: none;text-align: right;}
+
+#prevBtn,#nextBtn{
+    width: 240px;
+    background: #49D5FF;
+    border-radius: 5px;
+    border: 1px solid #00d8ff;
+    color:#fff;
+}
+#prevBtn{color: #49D5FF;background:transparent}
+.btn_wrap div{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+#prevBtn img{margin-left: 10px;}
+#nextBtn img{margin-right: 10px;}

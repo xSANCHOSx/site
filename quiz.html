@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/datepicker-he.js">
+    <title>ОПРОС</title>
+</head>
+<body class="quiz-page">
+    <form id="quiz-form" action="">
+        <div class="step">
+            <div class="title_wrap">
+                <div class="heading-title">Выберите ваше росположение в комнатах</div>
+            </div>
+            <div class="wrap">
+                <div class="field-checkbox">
+                    <input type="checkbox" name="single-room" id="single-room"/>
+                    <span></span>
+                    <label for="single-room"><img src="/img/man.svg" alt="single-room" />Комната на одного (с доплатой)</label>
+                </div>
+                <div class="field-checkbox">
+                    <input type="checkbox" name="two-in-room" id="two_in_room"/>
+                    <span></span>
+                    <label for="two_in_room"><img src="/img/two-man.svg" alt="two-in-room" />Комната на двоих</label>
+                </div>
+                <div class="field-select choose-neighbor">
+                    <label>Укажите соседа</label>
+                    <select>
+                        <option disabled>Выбрать соседа</option>
+                        <option>Сосед 1</option>
+                        <option>Сосед 2</option>
+                      </select>
+                </div>
+                <div class="field-checkbox">
+                    <input type="checkbox" name="family" id="family"/>
+                    <span></span>
+                    <label for="family"><img src="/img/family.svg" alt="family" />Комната для семьи</label>
+                </div>
+                <div class="add_family_member">
+                    <div class="block-title">Укажите супруга/супругу</div>
+                    <div class="field-input-group">
+                        <input type="text" name="name" placeholder="Ваше имя" />
+                        <input type="tel" name="phone" placeholder="Ваше телефон" />
+                        <div id="datetimepicker1" class="input-append date">
+                            <input type="text" id="datepicker" placeholder="01.01.2022">
+                            <span class="add-on"><i class="bi bi-calendar-date"></i></span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="title_wrap">
+                <div class="heading-title">Продолжить отпуск</div>
+                <div class="subtitle">Выберите нужный вам вариант</div>
+            </div>
+            <div class="wrap">
+                <div class="field-checkbox">
+                    <input type="checkbox" name="cont_vac_alone" id="cont_vac_alone"/>
+                    <span></span>
+                    <label for="cont_vac_alone">Я хочу продлить отпуск на выходные для себя</label>
+                </div>
+                <div class="field-checkbox">
+                    <input type="checkbox" name="cont_vac_family" id="cont_vac_family"/>
+                    <span></span>
+                    <label for="cont_vac_family">Я хочу продлить отпуск на выходные для семьи</label>
+                </div>
+                <div class="add_family_member2">
+                    <div class="block-title">Добавьте члена семьи</div>
+                    <div class="field-input-group">
+                        <input type="text" name="name" placeholder="Ваше имя" />
+                        <input type="tel" name="phone" placeholder="Ваше телефон" />
+                        <div id="datetimepicker1" class="input-append date">
+                            <input type="text" id="datepicker" placeholder="01.01.2022">
+                            <span class="add-on"><i class="bi bi-calendar-date"></i></span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn_wrap">
+            <div>
+                <button type="button" id="prevBtn" onclick="nextPrev(-1)"><img src="/img/arrow-right.svg" alt="arrow-right">Предидущий шаг</button>
+                <button type="button" id="nextBtn" onclick="nextPrev(1)">Следующий шаг<img src="/img/arrow-left.svg" alt="arrow-left"></button>
+            </div>
+          </div>
+    </form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
