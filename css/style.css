@@ -175,11 +175,11 @@ select{
   #quiz-form .wrap {padding: 20px 30px 30px 30px;}
   #prevBtn, #nextBtn{width: 200px;padding: 0;}
   .field-input-group input[type=text], .field-input-group input[type=tel], .field-input-group .data {
-    width: 180px;margin-left: 20px;
+    width: 100%;margin-left: 20px;
   }
-
-  .add-on{right: 150px;}
+  .add-on{left: 10px;}
   .field-input-group{flex-direction: column;}
   .field-input-group input[type=text],
   .field-input-group input[type=tel]{margin-bottom: 10px;}
+  .datepicker{margin-bottom: 0!important;}
 }
