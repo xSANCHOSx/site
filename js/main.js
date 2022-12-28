@@ -12,9 +12,6 @@ $( function() {
     list.append(newOption);
   };
 
-
-
-
   var CSV_URL = '../data.csv';
 
   $.get(CSV_URL, function (data) {
@@ -31,6 +28,24 @@ $( function() {
       };
     });
     names.forEach(insertNameInList);
+      });
+
+
+  $('#theForm .submit_form1').on('click', function(e){
+    e.preventDefault();
+    var name = $('#selectName').val();
+    var phone = $('#phone_check').val();
+    $.get(CSV_URL, function (data) {
+      var lines = data.split("\n");
+      lines.shift();
+      var names2 = lines.map(function (line) {
+        var fields = line.split(";");
+        if ((name == fields[0])&&(phone == fields[1])){
+          window.location.href = '/quiz.html';
+        }else{alert("Не такого пользователя")}
+      });
+
+ });
   });
 
 
