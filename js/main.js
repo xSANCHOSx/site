@@ -3,6 +3,37 @@ $( function() {
     $( "#datepicker2" ).datepicker({ dateFormat: 'dd.mm.yy' });
   } );
 
+  function insertNameInList(names) {
+    var list = $('select#selectName');
+    var newOption =
+        $('<option></option>')
+        .text(names.name);
+
+    list.append(newOption);
+  };
+
+
+
+
+  var CSV_URL = '../data.csv';
+
+  $.get(CSV_URL, function (data) {
+    var lines = data.split("\n");
+
+    lines.shift();
+
+    var names = lines.map(function (line) {
+      var fields = line.split(";");
+      return {
+        name: fields[0],
+        phone: fields[1],
+        email: fields[2],
+      };
+    });
+    names.forEach(insertNameInList);
+  });
+
+
   var currentStep = 0; // Current tab is set to be the first tab (0)
   showStep(currentStep);
 
@@ -86,3 +117,4 @@ $( function() {
       $('.add_family_member2').css('display','none');
     }
   });
+
