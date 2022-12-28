@@ -75,7 +75,9 @@ $( function() {
     });
   });
 
-
+  $(document).ready(function(){
+    $('input[type="tel"]').inputmask({"mask": "999 999 99 99"});
+  });
 
   var currentStep = 0; // Current tab is set to be the first tab (0)
   showStep(currentStep);

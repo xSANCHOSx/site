@@ -19,6 +19,7 @@ article, aside, address, section, video, audio {
   -ms-word-wrap: break-word;
   word-wrap: break-word; }
 
+
 html, body, .container-fluid {
   margin: 0;
   padding: 0;
@@ -44,7 +45,7 @@ html {
     font-style: normal;
     font-size: 16px;
   }
-
+  input[type="tel"]{direction: ltr;text-align: right;padding-right: 10px;}
 select#selectName, input[type=tel], button{
     width: 320px;
     height: 58px;
