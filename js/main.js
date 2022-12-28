@@ -33,20 +33,34 @@ $( function() {
 
   $('#theForm .submit_form1').on('click', function(e){
     e.preventDefault();
-    var name = $('#selectName').val();
+    var name_in_form = $('#selectName').val();
     var phone = $('#phone_check').val();
     $.get(CSV_URL, function (data) {
       var lines = data.split("\n");
       lines.shift();
-      var names2 = lines.map(function (line) {
+      var names = lines.map(function (line) {
         var fields = line.split(";");
-        if ((name == fields[0])&&(phone == fields[1])){
-          window.location.href = '/quiz.html';
-        }else{alert("Не такого пользователя")}
+        return {
+          name: fields[0],
+          phone: fields[1],
+          email: fields[2],
+        };
       });
-
- });
+      var is_redirect = false;
+      names.forEach(function(item) {
+        if (item.phone.includes(phone)) {
+          if(item.name.includes(name_in_form)){
+            is_redirect = true;
+          }
+        }
+      });
+      console.log(is_redirect);
+      if (is_redirect){
+        window.location.href = '/quiz.html';
+      }else{alert("Не такого пользователя")};
+    });
   });
+
 
 
   var currentStep = 0; // Current tab is set to be the first tab (0)
