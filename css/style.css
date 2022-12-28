@@ -168,3 +168,18 @@ select{
 }
 #prevBtn img{margin-left: 10px;}
 #nextBtn img{margin-right: 10px;}
+
+@media screen and (max-width:768px){
+  #quiz-form .step{width:100%;min-width: 500px;}
+  .title_wrap{font-size: 20px;padding: 40px 40px 20px 30px;}
+  #quiz-form .wrap {padding: 20px 30px 30px 30px;}
+  #prevBtn, #nextBtn{width: 200px;padding: 0;}
+  .field-input-group input[type=text], .field-input-group input[type=tel], .field-input-group .data {
+    width: 180px;margin-left: 20px;
+  }
+
+  .add-on{right: 150px;}
+  .field-input-group{flex-direction: column;}
+  .field-input-group input[type=text],
+  .field-input-group input[type=tel]{margin-bottom: 10px;}
+}

@@ -18,7 +18,7 @@ $( function() {
     if (n == (x.length - 1)) {
       document.getElementById("nextBtn").innerHTML = "Отправить";
     } else {
-      document.getElementById("nextBtn").innerHTML = "Следующий шаг<img src='/img/arrow-left.svg' alt='arrow-left'>";
+      document.getElementById("nextBtn").innerHTML = "Следующий шаг<img src='img/arrow-left.svg' alt='arrow-left'>";
     }
   }
   function nextPrev(n) {
