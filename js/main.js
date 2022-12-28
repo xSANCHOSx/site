@@ -11,6 +11,18 @@ $( function() {
 
     list.append(newOption);
   };
+  function insertNameInList2(names) {
+    var list2 = $('select#neighbor');
+    var curent_name = localStorage.getItem("ls_var_name");
+      if(curent_name == names.name){
+        var newOption2 = $('<option></option>').text(names.name).attr("disabled", "disabled");
+      }
+      else{
+        var newOption2 = $('<option></option>').text(names.name);
+      }
+
+    list2.append(newOption2);
+  };
 
   var CSV_URL = '../data.csv';
 
@@ -28,6 +40,7 @@ $( function() {
       };
     });
     names.forEach(insertNameInList);
+    names.forEach(insertNameInList2);
       });
 
 
@@ -51,6 +64,7 @@ $( function() {
         if (item.phone.includes(phone)) {
           if(item.name.includes(name_in_form)){
             is_redirect = true;
+            localStorage.setItem ("ls_var_name", item.name)
           }
         }
       });
