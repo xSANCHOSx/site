@@ -45,18 +45,24 @@ html {
     font-style: normal;
     font-size: 16px;
   }
-  input[type="tel"]{direction: ltr;text-align: right;padding-right: 10px;}
-select#selectName, input[type=tel], button{
+input[type="tel"]{direction: ltr;text-align: right;padding: 0; padding-right: 10px;}
+select#selectName, input[type=tel], .submit_form1{
     width: 320px;
     height: 58px;
     background-color: #fff;
-    border: 1px solid;
     border-radius: 5px;
     color:#777;
-    padding-left: 20px;
-    margin-right: 20px;
+    padding:0 10px 0 0;
+    margin: 0 10px 0 0;
+    border: none;
 }
-.submit_form1{background-color: #DEBC62;font-weight: 700;color:#fff;margin: 0; padding: 0;}
+.submit_form1{
+  background-color: #DEBC62;
+  font-weight: 700;
+  color:#fff;
+  margin: 0 10px 0 0;
+  padding: 0;
+  }
 
 .block_img_wrap {height: auto; }
 .block_img_wrap img {width: 100%; height: auto;}
@@ -67,6 +73,11 @@ select#selectName, input[type=tel], button{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+@media screen and (max-width:1024){
+  select#selectName, input[type=tel], .submit_form1{
+    width: 220px;
+  }
 }
 .quiz-page{
     width: 100%;
@@ -156,12 +167,14 @@ select{
 
 #prevBtn,#nextBtn{
     width: 240px;
+    height: 44px;
     background: #49D5FF;
     border-radius: 5px;
     border: 1px solid #00d8ff;
     color:#fff;
 }
 #prevBtn{color: #49D5FF;background:transparent}
+#nextBtn{margin-right: 20px;}
 .btn_wrap div{
   display: flex;
   justify-content: center;
@@ -171,6 +184,28 @@ select{
 #nextBtn img{margin-right: 10px;}
 
 @media screen and (max-width:768px){
+  .block_form_wrap {
+    background-color: #1B1B44;
+    width: 100%;
+    height: 100%;
+    padding: 30px 0;
+    display: block;
+  }
+  #theForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  select#selectName, input[type=tel], .submit_form1{
+    width: 80%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    padding-right: 10px;
+  }
+  .submit_form1{padding: 0; margin: 0;}
   #quiz-form .step{width:100%;min-width: 500px;}
   .title_wrap{font-size: 20px;padding: 40px 40px 20px 30px;}
   #quiz-form .wrap {padding: 20px 30px 30px 30px;}
@@ -183,4 +218,20 @@ select{
   .field-input-group input[type=text],
   .field-input-group input[type=tel]{margin-bottom: 10px;}
   .datepicker{margin-bottom: 0!important;}
+}
+@media (min-width:320px) and (max-width: 500px){
+  #quiz-form .step {
+      width: 90%;
+      min-width: unset;
+      margin: 0 auto;
+  }
+  .title_wrap {
+    font-size: 18px;
+    padding: 20px 20px 10px 20px;
+}
+#quiz-form .wrap {
+  padding: 20px 20px 20px 20px;
+}
+input[type=checkbox] ~ label,.field-select label{font-size: 15px;}
+select#neighbor{width: 100%;}
 }
