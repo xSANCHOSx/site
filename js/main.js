@@ -79,6 +79,16 @@ $( function() {
     $('input[type="tel"]').inputmask({"mask": "999 999 99 99"});
   });
 
+    const $block = $('.add_family_member2 .member_block').clone();
+
+    $('#add_member').click(function() {
+      $('.add_family_member2 .field-radio').before($block.clone());
+    });
+
+    $(document).on('click', '.delete', function() {
+      $(this).parent().remove();
+    });
+
   var currentStep = 0; // Current tab is set to be the first tab (0)
   showStep(currentStep);
 
@@ -160,6 +170,14 @@ $( function() {
       $('.add_family_member2').css('display','block');
     }else{
       $('.add_family_member2').css('display','none');
+    }
+  });
+
+  $('#commute_plane').on('click', function(){
+    if($("#commute_plane").is(":checked")) {
+      $('.plane_wrap').css('display','block');
+    }else{
+      $('.plane_wrap').css('display','none');
     }
   });
 

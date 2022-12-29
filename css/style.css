@@ -114,13 +114,14 @@ select#selectName, input[type=tel], .submit_form1{
 
 .block-title{width: 100%; text-align: right;margin-bottom: 10px;font-weight: bold;}
 
-
 #quiz-form .wrap{padding: 20px 60px 30px 60px;}
 .field-checkbox,.field-select{display: flex;align-items: center;margin-bottom: 15px;}
-input[type=checkbox]{display: none;}
-input[type=checkbox] + span{position: relative;width: 20px;height: 20px;border: 2px solid #49D5FF;
-  border-radius: 4px;}
-[type=checkbox]:checked + span:before {/* <-- ставим иконку, когда чекбокс включен  */
+input[type=checkbox],input[type=radio]{display: none;}
+input[type=checkbox] + span{position: relative;width: 20px;height: 20px;border: 2px solid #49D5FF; border-radius: 4px;}
+input[type=radio] + span{position: relative;width: 20px;height: 20px;}
+
+[type=checkbox]:checked + span:before,
+input[type=radio] + span:before {/* <-- ставим иконку, когда чекбокс включен  */
   content: url('/img/check-lg.svg');
   position: absolute;
   top: 0px;
@@ -128,6 +129,14 @@ input[type=checkbox] + span{position: relative;width: 20px;height: 20px;border: 
   height: 18px;
   background:#49D5FF;
 }
+input[type=radio] + span:before{ content: url('/img/plus.svg');background:transparent;}
+.field-input-group .delete{
+  content: url('/img/close.svg');
+  margin-top: 10px;
+  width: 20px;
+  height: 20px;
+}
+
 label[for="single-room"]>img,label[for="two_in_room"]>img,
 label[for="family"]>img,input[type=checkbox] + span{margin-left: 10px;}
 
@@ -143,7 +152,8 @@ select{
   border-radius: 5px;
   padding: 0 10px;
 }
-.field-input-group{display: flex;}
+.field-input-group,.field-radio{display: flex;}
+.field-input-group{margin-bottom: 20px;}
 .field-input-group input[type=text],
 .field-input-group input[type=tel],
 .field-input-group .data{
@@ -163,11 +173,11 @@ select{
   transform: translateY(-50%);
   left: 30px;
 }
-.choose-neighbor,.add_family_member,.add_family_member2{display: none;text-align: right;}
+.choose-neighbor,.add_family_member,.add_family_member2,.plane_wrap{display: none;text-align: right;}
 
 #prevBtn,#nextBtn{
     width: 240px;
-    height: 44px;
+    height: 58px;
     background: #49D5FF;
     border-radius: 5px;
     border: 1px solid #00d8ff;
@@ -175,6 +185,7 @@ select{
 }
 #prevBtn{color: #49D5FF;background:transparent}
 #nextBtn{margin-right: 20px;}
+#prevBtn:focus,#nextBtn:focus{outline: none;}
 .btn_wrap div{
   display: flex;
   justify-content: center;
@@ -183,6 +194,7 @@ select{
 #prevBtn img{margin-left: 10px;}
 #nextBtn img{margin-right: 10px;}
 
+#plane_arrive{margin-left: 15px;}
 @media screen and (max-width:768px){
   .block_form_wrap {
     background-color: #1B1B44;

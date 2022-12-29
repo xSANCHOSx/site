@@ -71,15 +71,63 @@
                 </div>
                 <div class="add_family_member2">
                     <div class="block-title">Добавьте члена семьи</div>
-                    <div class="field-input-group">
+                    <div class="field-input-group member_block">
                         <input type="text" name="name" placeholder="Ваше имя" />
                         <input type="tel" name="phone" placeholder="Ваше телефон" />
                         <div id="datetimepicker1" class="input-append date">
                             <input type="text" class="datepicker" id="datepicker2" placeholder="01.01.2022">
                             <span class="add-on"><i class="bi bi-calendar-date"></i></span>
                         </div>
-
+                        <div class="delete"></div>
                     </div>
+                    <div class="field-radio">
+                        <input type="radio" name="add_member" id="add_member"/>
+                        <span></span>
+                        <label for="add_member">Добавьте еще одного члена семьи</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="title_wrap">
+                <div class="heading-title">Как вы добираетесь?</div>
+                <div class="subtitle">Способы проезда или перелета</div>
+            </div>
+            <div class="wrap">
+                <div class="field-checkbox">
+                    <input type="checkbox" name="commute_alone" id="commute_alone"/>
+                    <span></span>
+                    <label for="commute_alone">Добираюсь самостоятельно</label>
+                </div>
+                <div class="field-checkbox">
+                    <input type="checkbox" name="commute_plane" id="commute_plane"/>
+                    <span></span>
+                    <label for="commute_plane">Самолетом</label>
+                </div>
+                <div class="plane_wrap">
+                    <div class="field-select">
+                        <select id="plane_arrive">
+                            <option disabled>Выбрать рейс туда</option>
+                        </select>
+                        <select id="plane_leave">
+                            <option disabled>Выбрать рейс обратно</option>
+                        </select>
+                    </div>
+                    <div class="block-title">Добавить авиа рейс для членов семьи</div>
+                    <div class="subtitle">Летят все члены семьи, добавленые ранее?</div>
+                    <div class="doble_checkbox">
+                        <div class="field-checkbox">
+                            <input type="checkbox" name="fly_member_yes" id="fly_member_yes"/>
+                            <span></span>
+                            <label for="fly_member_yes">Да</label>
+                        </div>
+                        <div class="field-checkbox">
+                            <input type="checkbox" name="fly_member_no" id="fly_member_no"/>
+                            <span></span>
+                            <label for="fly_member_no">Нет</label>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
