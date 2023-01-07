@@ -3,14 +3,14 @@ $( function() {
     $( "#datepicker2" ).datepicker({ dateFormat: 'dd.mm.yy' });
   } );
 
-  function insertNameInList(names) {
-    var list = $('select#selectName');
-    var newOption =
-        $('<option></option>')
-        .text(names.name);
+  // function insertNameInList(names) {
+  //   var list = $('select#selectName');
+  //   var newOption =
+  //       $('<option></option>')
+  //       .text(names.name);
 
-    list.append(newOption);
-  };
+  //   list.append(newOption);
+  // };
   function insertNameInList2(names) {
     var list2 = $('select#neighbor');
     var curent_name = localStorage.getItem("ls_var_name");
@@ -39,41 +39,41 @@ $( function() {
         email: fields[2],
       };
     });
-    names.forEach(insertNameInList);
+    //names.forEach(insertNameInList);
     names.forEach(insertNameInList2);
       });
 
 
-  $('#theForm .submit_form1').on('click', function(e){
-    e.preventDefault();
-    var name_in_form = $('#selectName').val();
-    var phone = $('#phone_check').val();
-    $.get(CSV_URL, function (data) {
-      var lines = data.split("\n");
-      lines.shift();
-      var names = lines.map(function (line) {
-        var fields = line.split(";");
-        return {
-          name: fields[0],
-          phone: fields[1],
-          email: fields[2],
-        };
-      });
-      var is_redirect = false;
-      names.forEach(function(item) {
-        if (item.phone.includes(phone)) {
-          if(item.name.includes(name_in_form)){
-            is_redirect = true;
-            localStorage.setItem ("ls_var_name", item.name)
-          }
-        }
-      });
-      console.log(is_redirect);
-      if (is_redirect){
-        window.location.href = '/quiz.html';
-      }else{alert("Не такого пользователя")};
-    });
-  });
+  // $('#theForm .submit_form1').on('click', function(e){
+  //   e.preventDefault();
+  //   var name_in_form = $('#selectName').val();
+  //   var phone = $('#phone_check').val();
+  //   $.get(CSV_URL, function (data) {
+  //     var lines = data.split("\n");
+  //     lines.shift();
+  //     var names = lines.map(function (line) {
+  //       var fields = line.split(";");
+  //       return {
+  //         name: fields[0],
+  //         phone: fields[1],
+  //         email: fields[2],
+  //       };
+  //     });
+  //     var is_redirect = false;
+  //     names.forEach(function(item) {
+  //       if (item.phone.includes(phone)) {
+  //         if(item.name.includes(name_in_form)){
+  //           is_redirect = true;
+  //           localStorage.setItem ("ls_var_name", item.name)
+  //         }
+  //       }
+  //     });
+  //     console.log(is_redirect);
+  //     if (is_redirect){
+  //       window.location.href = '/quiz.html';
+  //     }else{alert("Не такого пользователя")};
+  //   });
+  // });
 
   $(document).ready(function(){
     $('input[type="tel"]').inputmask({"mask": "999 999 99 99"});
@@ -103,16 +103,16 @@ $( function() {
       document.getElementById("prevBtn").style.display = "block";
     }
     if (n == (x.length - 1)) {
+      document.getElementById("prevBtn").style.display = "none";
       document.getElementById("nextBtn").innerHTML = "Отправить";
+      document.getElementById("nextBtn").classList.add('btn_submit');
     } else {
-      document.getElementById("nextBtn").innerHTML = "Следующий шаг<img src='img/arrow-left.svg' alt='arrow-left'>";
+      document.getElementById("nextBtn").innerHTML = "Следующий шаг<img src='img/arrow-right.svg' alt='arrow-right'>";
     }
   }
   function nextPrev(n) {
     // This function will figure out which tab to display
     var x = document.getElementsByClassName("step");
-    // Exit the function if any field in the current tab is invalid:
-    if (n == 1 && validateForm()) return false;
     // Hide the current tab:
     x[currentStep].style.display = "none";
     // Increase or decrease the current tab by 1:
@@ -127,27 +127,7 @@ $( function() {
     showStep(currentStep);
   }
 
-  function validateForm() {
-    // This function deals with validation of the form fields
-    var x, y, i, valid = true;
-    x = document.getElementsByClassName("step");
-    y = x[currentStep].getElementsByTagName("input");
-    // A loop that checks every input field in the current tab:
-    for (i = 0; i < y.length; i++) {
-      // If a field is empty...
-      if (y[i].value == "") {
-        // add an "invalid" class to the field:
-        y[i].className += " invalid";
-        // and set the current valid status to false:
-        valid = false;
-      }
-    }
-    // If the valid status is true, mark the step as finished and valid:
-    if (valid) {
-      document.getElementsByClassName("step")[currentTab].className += " finish";
-    }
-    return valid; // return the valid status
-  }
+
 
   $('#two_in_room').on('click', function(){
     if($("#two_in_room").is(":checked")) {
@@ -181,3 +161,36 @@ $( function() {
     }
   });
 
+  $('#fly_member_yes').on('click', function(){
+    if($("#fly_member_yes").is(":checked")) {
+      $('.plane_member').css('display','block');
+    }else{
+      $('.plane_member').css('display','none');
+    }
+  });
+
+  $('#fly_member_no').on('click', function(){
+    if($("#fly_member_no").is(":checked")) {
+      $('.plane_member').css('display','none');
+    }
+  });
+
+  function cbChange(obj) {
+    var cbs = document.getElementsByClassName("cb");
+    for (var i = 0; i < cbs.length; i++) {
+        cbs[i].checked = false;
+    }
+    obj.checked = true;
+}
+$('.btn_submit').css('pointer-events', 'none ');
+$('.btn_submit').css('opacity', '0.5 ');
+
+$("#policy").change(function() {
+    if(this.checked) {
+        $('.btn_submit').css('pointer-events', 'auto');
+        $('.btn_submit').css('opacity', '1 ');
+    }else{
+	$('.btn_submit').css('pointer-events', 'none ');
+	$('.btn_submit').css('opacity', '0.5 ');
+}
+});

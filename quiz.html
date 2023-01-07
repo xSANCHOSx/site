@@ -1,5 +1,5 @@
     <!DOCTYPE html>
-<html dir="rtl" lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,10 +12,10 @@
     <title>ОПРОС</title>
 </head>
 <body class="quiz-page">
-    <form id="quiz-form" action="">
+    <form id="quiz-form" action="" >
         <div class="step">
             <div class="title_wrap">
-                <div class="heading-title">Выберите ваше росположение в комнатах</div>
+                <div class="heading-title">Выберите ваше расположение в комнатах</div>
             </div>
             <div class="wrap">
                 <div class="field-checkbox">
@@ -117,24 +117,38 @@
                     <div class="subtitle">Летят все члены семьи, добавленые ранее?</div>
                     <div class="doble_checkbox">
                         <div class="field-checkbox">
-                            <input type="checkbox" name="fly_member_yes" id="fly_member_yes"/>
+                            <input  class="cb" type="checkbox" name="fly_member_yes" id="fly_member_yes" onchange="cbChange(this)"/>
                             <span></span>
                             <label for="fly_member_yes">Да</label>
                         </div>
                         <div class="field-checkbox">
-                            <input type="checkbox" name="fly_member_no" id="fly_member_no"/>
+                            <input class="cb" type="checkbox" name="fly_member_no" checked id="fly_member_no" onchange="cbChange(this)"/>
                             <span></span>
                             <label for="fly_member_no">Нет</label>
                         </div>
                     </div>
-
+                    <div class="field-select plane_member">
+                        <select id="plane_arrive_member">
+                            <option disabled>Выбрать рейс туда</option>
+                        </select>
+                        <select id="plane_leave_member">
+                            <option disabled>Выбрать рейс обратно</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_wrap">
+                <div class="field-checkbox">
+                    <input type="checkbox" name="policy" id="policy"/>
+                    <span></span>
+                    <label for="policy">Я согласен с политикой безопастности и правилами использования персональных данных</label>
                 </div>
             </div>
         </div>
         <div class="btn_wrap">
             <div>
-                <button type="button" id="prevBtn" onclick="nextPrev(-1)"><img src="img/arrow-right.svg" alt="arrow-right">Предидущий шаг</button>
-                <button type="button" id="nextBtn" onclick="nextPrev(1)">Следующий шаг<img src="img/arrow-left.svg" alt="arrow-left"></button>
+                <button type="button" id="prevBtn" onclick="nextPrev(-1)"><img src="img/arrow-left.svg" alt="arrow-left">Предидущий шаг</button>
+                <button type="button" id="nextBtn" onclick="nextPrev(1)">Следующий шаг<img src="img/arrow-right.svg" alt="arrow-right"></button>
             </div>
           </div>
     </form>
